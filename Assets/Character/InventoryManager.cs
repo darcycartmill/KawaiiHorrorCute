@@ -209,6 +209,11 @@ public class InventoryManager : MonoBehaviour {
 		if(closestFoundScript == null){
 			return;
 		}
+        
+        // Check to see item matches!
+        // If item matches another corresponding item
+        // execute the item event.
+
 
 		//if we don't have any items yet, just pick the thing up
 		if(_inventory.Count == 0){

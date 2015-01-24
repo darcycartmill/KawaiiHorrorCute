@@ -49,6 +49,7 @@
      <Compile Include="Assets\Character\InventoryManager.cs" />
      <Compile Include="Assets\Character\MovementScript.cs" />
      <Compile Include="Assets\Door\ShoveableByPlayer.cs" />
+     <Compile Include="Assets\Events\EventManager.cs" />
      <Compile Include="Assets\Item\Inventory GUI\InventoryBoxManager.cs" />
      <Compile Include="Assets\Item\ItemScript.cs" />
      <Compile Include="Assets\Item\KeyScript.cs" />
