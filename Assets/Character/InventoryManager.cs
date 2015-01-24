@@ -14,7 +14,7 @@ public class InventoryManager : MonoBehaviour {
 
 	List<ItemScript> _inventory;
 	int _heldItemIndex;
-	int _inventorySlots = 2;
+	int _inventorySlots = 6;
 	float _pickupRadious = 3;
 
 	Transform _itemSlotDestination;
@@ -25,9 +25,15 @@ public class InventoryManager : MonoBehaviour {
 	float _prevFire2;
 	float _prevFire1;
 
+	bool _incrementInventorySlot;
+
+	InventoryBoxManager inventoryBoxManager;
+
 	// Use this for initialization
 	void Start () {
+		inventoryBoxManager = GameObject.Find("InventoryBox").GetComponent<InventoryBoxManager>();
 		_inventory = new List<ItemScript>();
+		RecalculateGUI();
 	}
 	//pull item out of camera view, then change it to whatever else
 	IEnumerator SwapItem(){
@@ -39,13 +45,24 @@ public class InventoryManager : MonoBehaviour {
 			yield return null;
 		}
 		//once it gets there change it to the next item
-		_heldItemIndex++;
-		if(_heldItemIndex >= _inventory.Count){
-			_heldItemIndex = 0;
+		if(_incrementInventorySlot){
+			_heldItemIndex++;
+			if(_heldItemIndex >= _inventory.Count){
+				_heldItemIndex = 0;
+			}
+		}else{
+			_heldItemIndex--;
+			if(_heldItemIndex < 0){
+				_heldItemIndex = _inventory.Count - 1;
+			}
 		}
+		HighlightEquiptItem();
 		_runningCoroutine = false;
 		_itemSlotDestination = null;
 		EnableItem(_heldItemIndex);
+
+		
+
 		yield break;
 	}
 
@@ -89,6 +106,11 @@ public class InventoryManager : MonoBehaviour {
 		float dropItemButton = Input.GetAxis("Fire3");
 
 		if(switchItemButton != 0){
+			if(switchItemButton > 0){
+				_incrementInventorySlot = true;
+			}else{
+				_incrementInventorySlot = false;
+			}
 			StartCoroutine("SwapItem");
 			return;
 		}
@@ -132,6 +154,8 @@ public class InventoryManager : MonoBehaviour {
 		oldItem.transform.parent = null;
 
 		_inventory.Remove(oldItem);
+
+		RecalculateGUI();
 	}
 
 	void EnableItem(int index){
@@ -190,6 +214,7 @@ public class InventoryManager : MonoBehaviour {
 		if(_inventory.Count == 0){
 			_heldItemIndex = 0;
 			PrepareItemForStorage(closestFoundScript);
+			RecalculateGUI();
 			return;
 		}
 
@@ -201,7 +226,7 @@ public class InventoryManager : MonoBehaviour {
 			_heldItemIndex = _inventory.Count - 1;
 
 			EnableItem(_heldItemIndex);
-
+			RecalculateGUI();
 			return;
 		}
 
@@ -214,6 +239,27 @@ public class InventoryManager : MonoBehaviour {
 
 		EnableItem(_heldItemIndex);
 
+		RecalculateGUI();
+
+	}
+
+	//changes the images in the inventory box based on heald items
+	void RecalculateGUI(){
+		for(int i = 0; i < inventoryBoxManager.guiImages.Count; i++){
+			if(i < _inventory.Count){
+				inventoryBoxManager.guiImages[i].sprite = _inventory[i].mySprite;
+				inventoryBoxManager.guiImages[i].enabled = true;
+			}else{
+				inventoryBoxManager.guiImages[i].enabled = false;
+			}
+		}
+
+		HighlightEquiptItem();
+	}
+
+	//make the item we're currently holding more obvious
+	void HighlightEquiptItem(){
+		inventoryBoxManager.HighlightImage(_heldItemIndex);
 	}
 
 	void MoveItemSlot(){
