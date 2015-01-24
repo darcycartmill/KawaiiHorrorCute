@@ -99,9 +99,6 @@ public class InventoryManager : MonoBehaviour {
 			return;
 		}
 		_prevFire1 = activateItemButton;
-		
-		Debug.Log(_prevFire1);
-
 
 		if(dropItemButton != 0){
 			DropItem(_inventory[_heldItemIndex]);
