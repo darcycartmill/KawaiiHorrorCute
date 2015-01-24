@@ -23,6 +23,7 @@ public class InventoryManager : MonoBehaviour {
 	bool _runningCoroutine;
 
 	float _prevFire2;
+	float _prevFire1;
 
 	// Use this for initialization
 	void Start () {
@@ -92,10 +93,15 @@ public class InventoryManager : MonoBehaviour {
 			return;
 		}
 
-		if(activateItemButton != 0){
+		if(activateItemButton != 0 && _prevFire1 == 0){
 			StartCoroutine("UseItem");
+			_prevFire1 = activateItemButton;
 			return;
 		}
+		_prevFire1 = activateItemButton;
+		
+		Debug.Log(_prevFire1);
+
 
 		if(dropItemButton != 0){
 			DropItem(_inventory[_heldItemIndex]);

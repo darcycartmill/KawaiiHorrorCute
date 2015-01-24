@@ -1,12 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Character\InventoryManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Item\ItemScript.cs">
     <Files>
-      <File FileName="Assets\Character\InventoryManager.cs" Line="22" Column="1" />
+      <File FileName="Assets\Character\InventoryManager.cs" Line="218" Column="41" />
+      <File FileName="Assets\Item\ItemScript.cs" Line="4" Column="39" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Catchpoint exceptionName="System.ArgumentOutOfRangeException" />
+      <Breakpoint file="C:\Users\graphic\Documents\KawaiiHorrorCute\Assets\Character\InventoryManager.cs" line="59" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

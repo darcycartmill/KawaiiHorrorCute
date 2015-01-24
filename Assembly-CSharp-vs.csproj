@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Character\InventoryManager.cs" />
      <Compile Include="Assets\Item\ItemScript.cs" />
+     <Compile Include="Assets\Item\LighterScript.cs" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>C:/Users/graphic/Documents/KawaiiHorrorCute/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
