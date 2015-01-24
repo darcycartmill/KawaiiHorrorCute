@@ -20,7 +20,7 @@ public class InventoryManager : MonoBehaviour {
 	Transform _itemSlotDestination;
 	float _itemSlotSpeed = 10;
 
-	bool _swapping;
+	bool _runningCoroutine;
 
 	float _prevFire2;
 
@@ -33,7 +33,7 @@ public class InventoryManager : MonoBehaviour {
 
 		//move our held item to the bag of holding on our back
 		while(Vector3.SqrMagnitude(itemSlot.position - swapItemTrans.position) > 0.01f){
-			_swapping = true;
+			_runningCoroutine = true;
 			_itemSlotDestination = swapItemTrans;
 			yield return null;
 		}
@@ -42,7 +42,7 @@ public class InventoryManager : MonoBehaviour {
 		if(_heldItemIndex >= _inventory.Count){
 			_heldItemIndex = 0;
 		}
-		_swapping = false;
+		_runningCoroutine = false;
 		_itemSlotDestination = null;
 		EnableItem(_heldItemIndex);
 		yield break;
@@ -50,7 +50,15 @@ public class InventoryManager : MonoBehaviour {
 
 	//push the item to the active item position, then do whatever effect this item does
 	IEnumerator UseItem(){
-		return null;
+		while(Vector3.SqrMagnitude(itemSlot.position - useItemTrans.position) > 0.01f){
+			_runningCoroutine = true;
+			_itemSlotDestination = useItemTrans;
+			yield return null;
+		}
+		//once we're in position use our item
+		_inventory[_heldItemIndex].ApplyEffect();
+		_runningCoroutine = false;
+		yield break;
 	}
 
 	void UpdateItem(){
@@ -59,16 +67,43 @@ public class InventoryManager : MonoBehaviour {
 			return;
 		}
 
+		//kinda hackfixy. if the index is invalid (usually after dropping something) just set it to zero
+		if(_heldItemIndex < 0 || _heldItemIndex >= _inventory.Count){
+			_heldItemIndex = 0;
+		}
+
 		//apply held effects, like the lighter remaining on
 		if(_inventory[_heldItemIndex] != null){
 			_inventory[_heldItemIndex].HeldEffect();
 		}
+
+		//don't let the player do any new actions while a coroutine is running
+		if(_runningCoroutine){
+			return;
+		}
 		             
 		float activateItemButton = Input.GetAxis("Fire1");
 	    float switchItemButton = Input.GetAxis("Mouse ScrollWheel");
+		float dropItemButton = Input.GetAxis("Fire3");
 
-		if(switchItemButton != 0 && !_swapping){
+		if(switchItemButton != 0){
 			StartCoroutine("SwapItem");
+			return;
+		}
+
+		if(activateItemButton != 0){
+			StartCoroutine("UseItem");
+			return;
+		}
+
+		if(dropItemButton != 0){
+			DropItem(_inventory[_heldItemIndex]);
+	
+			//if we're holding any other items swap to them
+			if(_inventory.Count != 0){
+				_heldItemIndex--;
+				StartCoroutine("SwapItem");
+			}
 		}
 	}
 
@@ -110,10 +145,11 @@ public class InventoryManager : MonoBehaviour {
 	void PickupItem(){
 		//cast a sphere around our hand, and check all the found colliders for takeable items
 		Collider[] foundColliders = Physics.OverlapSphere(heldItemTrans.position, _pickupRadious);  
-		ItemScript foundScript = null;
+		ItemScript closestFoundScript = null;
+
 		foreach(Collider iter in foundColliders){
-			foundScript = iter.GetComponent<ItemScript>();
-			//if we find an item we can take, break
+			ItemScript foundScript = iter.GetComponent<ItemScript>();
+
 			if(foundScript != null){
 				//make sure this item isn't one of the ones we're holding
 				foreach(ItemScript item in _inventory){
@@ -122,29 +158,31 @@ public class InventoryManager : MonoBehaviour {
 						break;
 					}
 				}
-				//if we're not already holding the item break out of this loop and pick up the new item
-				if(foundScript != null){
-					break;
+				//I'm assuming the player will usually want to pick up the item closest to their pickup point
+				if(closestFoundScript == null){
+					closestFoundScript = foundScript;
+				}else if(Vector3.SqrMagnitude(foundScript.transform.position - heldItemTrans.position) < Vector3.SqrMagnitude(closestFoundScript.transform.position - heldItemTrans.position)){
+					closestFoundScript = foundScript;
 				}
 			}
 		}
 
 		//nothing to pick up, nothing to do here. 
-		if(foundScript == null){
+		if(closestFoundScript == null){
 			return;
 		}
 
 		//if we don't have any items yet, just pick the thing up
 		if(_inventory.Count == 0){
 			_heldItemIndex = 0;
-			PrepareItemForStorage(foundScript);
+			PrepareItemForStorage(closestFoundScript);
 			return;
 		}
 
 		//if out inventory isn't full yet, add the new item to our inventory and then switch to it
 		if(_inventory.Count < _inventorySlots){
 			//pick up the new item
-			PrepareItemForStorage(foundScript);
+			PrepareItemForStorage(closestFoundScript);
 			//set our held index to our new item
 			_heldItemIndex = _inventory.Count - 1;
 
@@ -156,7 +194,7 @@ public class InventoryManager : MonoBehaviour {
 		//finally, if our inventory is full drop the current item and pick up the new one
 		DropItem(_inventory[_heldItemIndex]);
 		//pick up the new item
-		PrepareItemForStorage(foundScript);
+		PrepareItemForStorage(closestFoundScript);
 		//set our held index to our new item
 		_heldItemIndex = _inventory.Count - 1;
 
