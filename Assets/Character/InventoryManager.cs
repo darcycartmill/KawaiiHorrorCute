@@ -209,6 +209,11 @@ public class InventoryManager : MonoBehaviour {
 		if(closestFoundScript == null){
 			return;
 		}
+        
+        // Check to see item matches!
+        // If item matches another corresponding item
+        // execute the item event.
+
 
 		//if we don't have any items yet, just pick the thing up
 		if(_inventory.Count == 0){
@@ -237,9 +242,12 @@ public class InventoryManager : MonoBehaviour {
 		//set our held index to our new item
 		_heldItemIndex = _inventory.Count - 1;
 
-		EnableItem(_heldItemIndex);
+		closestFoundScript.OnPickup();
 
+		EnableItem(_heldItemIndex);
+		
 		RecalculateGUI();
+
 
 	}
 

@@ -8,5 +8,10 @@ public class ItemScript : MonoBehaviour {
 	public virtual void HeldEffect(){}
 
 	public virtual void ApplyEffect(){}
-	
+
+	public virtual void OnPickup(){}
+
+	public override void Kill(){
+		Destroy(gameObject);
+	}
 }

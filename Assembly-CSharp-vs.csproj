@@ -49,11 +49,14 @@
      <Compile Include="Assets\Character\InventoryManager.cs" />
      <Compile Include="Assets\Character\MovementScript.cs" />
      <Compile Include="Assets\Door\ShoveableByPlayer.cs" />
+     <Compile Include="Assets\Events\EventManager.cs" />
+     <Compile Include="Assets\Item\CanScript.cs" />
+     <Compile Include="Assets\Item\CanopenerScript.cs" />
      <Compile Include="Assets\Item\Inventory GUI\InventoryBoxManager.cs" />
      <Compile Include="Assets\Item\ItemScript.cs" />
      <Compile Include="Assets\Item\KeyScript.cs" />
      <Compile Include="Assets\Item\LighterScript.cs" />
-     <Compile Include="Assets\Item\PulsingLight.cs" />
+     <Compile Include="Assets\Item\Prefabs\PulsingLight.cs" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>C:/Users/graphic/Documents/KawaiiHorrorCute/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
