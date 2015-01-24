@@ -20,6 +20,7 @@ public class InventoryManager : MonoBehaviour {
 	Transform _itemSlotDestination;
 	float _itemSlotSpeed = 10;
 
+	bool _swapping;
 
 	float _prevFire2;
 
@@ -29,8 +30,10 @@ public class InventoryManager : MonoBehaviour {
 	}
 	//pull item out of camera view, then change it to whatever else
 	IEnumerator SwapItem(){
+
 		//move our held item to the bag of holding on our back
 		while(Vector3.SqrMagnitude(itemSlot.position - swapItemTrans.position) > 0.01f){
+			_swapping = true;
 			_itemSlotDestination = swapItemTrans;
 			yield return null;
 		}
@@ -39,6 +42,8 @@ public class InventoryManager : MonoBehaviour {
 		if(_heldItemIndex >= _inventory.Count){
 			_heldItemIndex = 0;
 		}
+		_swapping = false;
+		_itemSlotDestination = null;
 		EnableItem(_heldItemIndex);
 		yield break;
 	}
@@ -62,8 +67,8 @@ public class InventoryManager : MonoBehaviour {
 		float activateItemButton = Input.GetAxis("Fire1");
 	    float switchItemButton = Input.GetAxis("Mouse ScrollWheel");
 
-		if(switchItemButton != 0){
-			SwapItem();
+		if(switchItemButton != 0 && !_swapping){
+			StartCoroutine("SwapItem");
 		}
 	}
 
@@ -166,7 +171,9 @@ public class InventoryManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		_itemSlotDestination = heldItemTrans;
+		if(_itemSlotDestination == null){
+			_itemSlotDestination = heldItemTrans;
+		}
 
 		UpdateItem();
 
