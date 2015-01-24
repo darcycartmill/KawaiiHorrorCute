@@ -50,6 +50,7 @@
      <Compile Include="Assets\Character\MovementScript.cs" />
      <Compile Include="Assets\Door\ShoveableByPlayer.cs" />
      <Compile Include="Assets\Item\ItemScript.cs" />
+     <Compile Include="Assets\Item\KeyScript.cs" />
      <Compile Include="Assets\Item\LighterScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>

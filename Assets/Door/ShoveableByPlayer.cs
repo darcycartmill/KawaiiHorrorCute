@@ -3,6 +3,8 @@ using System.Collections;
 
 public class ShoveableByPlayer : MonoBehaviour {
 
+	bool unlocked = false;
+
 	// Use this for initialization
 	void Start () {
 	

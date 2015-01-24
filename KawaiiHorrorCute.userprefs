@@ -6,14 +6,13 @@
       <File FileName="Assets\Item\ItemScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Item\LighterScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Character Controllers\Sources\Scripts\CharacterMotor.js" Line="1" Column="1" />
-      <File FileName="Assets\Character\MovementScript.cs" Line="25" Column="8" />
-      <File FileName="Assets\Door\ShoveableByPlayer.cs" Line="19" Column="45" />
+      <File FileName="Assets\Character\MovementScript.cs" Line="24" Column="32" />
+      <File FileName="Assets\Door\ShoveableByPlayer.cs" Line="19" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Catchpoint exceptionName="System.ArgumentOutOfRangeException" />
-      <Breakpoint file="C:\Users\graphic\Documents\KawaiiHorrorCute\Assets\Character\InventoryManager.cs" line="97" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
