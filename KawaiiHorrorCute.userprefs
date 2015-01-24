@@ -1,15 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Item\Inventory GUI\IventoryBoxManager.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Character\InventoryManager.cs">
     <Files>
-      <File FileName="Assets\Character\InventoryManager.cs" Line="30" Column="5" />
-      <File FileName="Assets\Item\ItemScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Item\LighterScript.cs" Line="24" Column="21" />
-      <File FileName="Assets\Standard Assets\Character Controllers\Sources\Scripts\CharacterMotor.js" Line="1" Column="1" />
-      <File FileName="Assets\Character\MovementScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Door\ShoveableByPlayer.cs" Line="1" Column="1" />
-      <File FileName="Assets\Item\KeyScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Item\Inventory GUI\IventoryBoxManager.cs" Line="4" Column="33" />
+      <File FileName="Assets\Character\InventoryManager.cs" Line="56" Column="43" />
+      <File FileName="Assets\Item\Inventory GUI\InventoryBoxManager.cs" Line="15" Column="38" />
+      <File FileName="Assets\Item\ItemScript.cs" Line="6" Column="21" />
+      <File FileName="Assets\Character\MovementScript.cs" Line="13" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
