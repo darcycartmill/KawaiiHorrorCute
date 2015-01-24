@@ -248,8 +248,8 @@ public class InventoryManager : MonoBehaviour {
 		
 		RecalculateGUI();
 
-
 	}
+	
 
 	//changes the images in the inventory box based on heald items
 	void RecalculateGUI(){

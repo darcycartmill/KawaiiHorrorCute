@@ -11,7 +11,7 @@ public class ItemScript : MonoBehaviour {
 
 	public virtual void OnPickup(){}
 
-	public override void Kill(){
+	public virtual void Kill(){
 		Destroy(gameObject);
 	}
 }
