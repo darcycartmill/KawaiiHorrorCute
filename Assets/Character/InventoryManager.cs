@@ -249,7 +249,17 @@ public class InventoryManager : MonoBehaviour {
 		RecalculateGUI();
 
 	}
-	
+
+	//serches the inventory for an item, deleting it and returning true if it's found
+	public bool KillItemByName(string myname){
+		foreach(ItemScript iter in _inventory){
+			if(iter.name == myname){
+				iter.Kill();
+				return true;
+			}
+		}
+		return false;
+	}
 
 	//changes the images in the inventory box based on heald items
 	void RecalculateGUI(){
