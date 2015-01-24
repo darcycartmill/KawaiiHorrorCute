@@ -58,6 +58,7 @@ public class InventoryManager : MonoBehaviour {
 		//once we're in position use our item
 		_inventory[_heldItemIndex].ApplyEffect();
 		_runningCoroutine = false;
+		_itemSlotDestination = null;
 		yield break;
 	}
 
@@ -143,6 +144,11 @@ public class InventoryManager : MonoBehaviour {
 	}
 
 	void PickupItem(){
+		//don't let players do this if we're swapping or using an item
+		if(_runningCoroutine){
+			return;
+		}
+
 		//cast a sphere around our hand, and check all the found colliders for takeable items
 		Collider[] foundColliders = Physics.OverlapSphere(heldItemTrans.position, _pickupRadious);  
 		ItemScript closestFoundScript = null;
@@ -158,6 +164,11 @@ public class InventoryManager : MonoBehaviour {
 						break;
 					}
 				}
+
+				if(foundScript == null){
+					continue;
+				}
+
 				//I'm assuming the player will usually want to pick up the item closest to their pickup point
 				if(closestFoundScript == null){
 					closestFoundScript = foundScript;
@@ -203,16 +214,16 @@ public class InventoryManager : MonoBehaviour {
 	}
 
 	void MoveItemSlot(){
+		if(_itemSlotDestination == null){
+			_itemSlotDestination = heldItemTrans;
+		}
+
 		itemSlot.position = Vector3.Lerp(itemSlot.position, _itemSlotDestination.position, Time.deltaTime * _itemSlotSpeed);
 		itemSlot.rotation = Quaternion.Slerp(itemSlot.rotation, _itemSlotDestination.rotation, Time.deltaTime * _itemSlotSpeed);
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if(_itemSlotDestination == null){
-			_itemSlotDestination = heldItemTrans;
-		}
-
 		UpdateItem();
 
 		//if the fire button was pressed this frame try to pick up an item
