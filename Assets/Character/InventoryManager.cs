@@ -19,13 +19,28 @@ public class InventoryManager : MonoBehaviour {
 
 	Transform _itemSlotDestination;
 	float _itemSlotSpeed = 10;
+
+
+	float _prevFire2;
+
 	// Use this for initialization
 	void Start () {
 		_inventory = new List<ItemScript>();
 	}
 	//pull item out of camera view, then change it to whatever else
 	IEnumerator SwapItem(){
-		return null;
+		//move our held item to the bag of holding on our back
+		while(Vector3.SqrMagnitude(itemSlot.position - swapItemTrans.position) > 0.01f){
+			_itemSlotDestination = swapItemTrans;
+			yield return null;
+		}
+		//once it gets there change it to the next item
+		_heldItemIndex++;
+		if(_heldItemIndex >= _inventory.Count){
+			_heldItemIndex = 0;
+		}
+		EnableItem(_heldItemIndex);
+		yield break;
 	}
 
 	//push the item to the active item position, then do whatever effect this item does
@@ -46,6 +61,10 @@ public class InventoryManager : MonoBehaviour {
 		             
 		float activateItemButton = Input.GetAxis("Fire1");
 	    float switchItemButton = Input.GetAxis("Mouse ScrollWheel");
+
+		if(switchItemButton != 0){
+			SwapItem();
+		}
 	}
 
 	void PrepareItemForStorage(ItemScript newItem){
@@ -64,11 +83,23 @@ public class InventoryManager : MonoBehaviour {
 
 	void DropItem(ItemScript oldItem){
 		oldItem.enabled = true;
-		oldItem.collider.isTrigger = true;
+		oldItem.collider.isTrigger = false;
 		oldItem.rigidbody.isKinematic = false;
 		oldItem.transform.parent = null;
 
 		_inventory.Remove(oldItem);
+	}
+
+	void EnableItem(int index){
+		int curIndex = 0;
+		foreach(ItemScript iter in _inventory){
+			if(curIndex == index){
+				iter.gameObject.SetActive(true);
+			}else{
+				iter.gameObject.SetActive(false);
+			}
+			curIndex++;
+		}
 	}
 
 	void PickupItem(){
@@ -79,7 +110,17 @@ public class InventoryManager : MonoBehaviour {
 			foundScript = iter.GetComponent<ItemScript>();
 			//if we find an item we can take, break
 			if(foundScript != null){
-				break;
+				//make sure this item isn't one of the ones we're holding
+				foreach(ItemScript item in _inventory){
+					if(item == foundScript){
+						foundScript = null;
+						break;
+					}
+				}
+				//if we're not already holding the item break out of this loop and pick up the new item
+				if(foundScript != null){
+					break;
+				}
 			}
 		}
 
@@ -88,22 +129,22 @@ public class InventoryManager : MonoBehaviour {
 			return;
 		}
 
-		PrepareItemForStorage(foundScript);
-
 		//if we don't have any items yet, just pick the thing up
 		if(_inventory.Count == 0){
+			_heldItemIndex = 0;
 			PrepareItemForStorage(foundScript);
 			return;
 		}
 
 		//if out inventory isn't full yet, add the new item to our inventory and then switch to it
 		if(_inventory.Count < _inventorySlots){
-			//disable the item we're currently holding
-			_inventory[_heldItemIndex].enabled = false;
 			//pick up the new item
 			PrepareItemForStorage(foundScript);
 			//set our held index to our new item
 			_heldItemIndex = _inventory.Count - 1;
+
+			EnableItem(_heldItemIndex);
+
 			return;
 		}
 
@@ -113,6 +154,8 @@ public class InventoryManager : MonoBehaviour {
 		PrepareItemForStorage(foundScript);
 		//set our held index to our new item
 		_heldItemIndex = _inventory.Count - 1;
+
+		EnableItem(_heldItemIndex);
 
 	}
 
@@ -127,9 +170,12 @@ public class InventoryManager : MonoBehaviour {
 
 		UpdateItem();
 
-		if(Input.GetAxis("Fire2") != null){
+		//if the fire button was pressed this frame try to pick up an item
+		float curFire2 = Input.GetAxis("Fire2");
+		if(curFire2 != 0 && _prevFire2 == 0){
 			PickupItem();
 		}
+		_prevFire2 = curFire2;
 
 		MoveItemSlot();
 	}
