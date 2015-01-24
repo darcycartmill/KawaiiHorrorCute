@@ -1,10 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Character\InventoryManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Item\ItemScript.cs">
     <Files>
-      <File FileName="Assets\Character\InventoryManager.cs" Line="56" Column="43" />
-      <File FileName="Assets\Item\Inventory GUI\InventoryBoxManager.cs" Line="15" Column="38" />
-      <File FileName="Assets\Item\ItemScript.cs" Line="6" Column="21" />
+      <File FileName="Assets\Character\InventoryManager.cs" Line="47" Column="50" />
+      <File FileName="Assets\Item\Inventory GUI\InventoryBoxManager.cs" Line="15" Column="24" />
+      <File FileName="Assets\Item\ItemScript.cs" Line="11" Column="2" />
       <File FileName="Assets\Character\MovementScript.cs" Line="13" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
