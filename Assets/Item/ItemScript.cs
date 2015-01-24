@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ItemScript : MonoBehaviour {
 
-	Sprite mySprite;
+	public Texture mySprite;
 
 	public virtual void HeldEffect(){}
 

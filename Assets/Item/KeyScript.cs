@@ -1,15 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class KeyScript : MonoBehaviour {
+public class KeyScript : ItemScript {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	//public bool 
+
+	public override void ApplyEffect(){
+
 	}
 }
