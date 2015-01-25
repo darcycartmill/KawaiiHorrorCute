@@ -7,7 +7,7 @@ public class EnemyManager : MonoBehaviour {
 
 	GameObject player;
 	float currentSpawnrate = 30;
-	float spawnrateTickdown = 0.3f;
+	float spawnrateTickdown = 1.3f;
 	float minSpawnRate = 2;
 	float spawntime;
 	float spawnDistance = 20;

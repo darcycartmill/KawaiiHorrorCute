@@ -32,8 +32,10 @@ public class EnemyScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if(Vector3.Magnitude(player.transform.position - transform.position) < 20){
-			mysource.Play();
+		if(Vector3.Magnitude(player.transform.position - transform.position) < 10){
+			if(!mysource.isPlaying){
+				mysource.Play();
+			}
 		}
 
 		if(!myAgent.SetDestination(player.transform.position)){

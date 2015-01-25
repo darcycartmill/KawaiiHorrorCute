@@ -7,6 +7,8 @@ public class BlasterScript : ItemScript {
 	
 	public GameObject shootMe;
 
+	public AudioSource mySource;
+
 	float _energy;
 	float _energyLossRate = 5;
 	float _energyGainRate = 2;
@@ -38,6 +40,7 @@ public class BlasterScript : ItemScript {
 	public override void ApplyEffect(){
 		if(_energy > _energyPerShot){
 			_energy -= _energyPerShot;
+			mySource.Play();
 		}else{
 			return;
 		}
