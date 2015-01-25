@@ -13,6 +13,8 @@ public class ItemScript : MonoBehaviour {
 
 	public virtual void OnDrop(){}
 
+	public virtual void OnUpdate(){}
+
 	public virtual void Kill(){
 		Destroy(gameObject);
 	}

@@ -45,8 +45,8 @@ public class BlasterScript : ItemScript {
 		GameObject projectile = Instantiate(shootMe, transform.position, transform.rotation) as GameObject;
 		projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * 500);
 	}
-	
-	void Update(){
+
+	public override void OnUpdate(){
 		_energy += Time.deltaTime * _energyGainRate;
 		_energy = Mathf.Clamp(_energy, 0, 100);
 	}

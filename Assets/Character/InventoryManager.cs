@@ -293,6 +293,10 @@ public class InventoryManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		foreach(ItemScript iter in _inventory){
+			iter.OnUpdate();
+		}
+
 		UpdateItem();
 
 		//if the fire button was pressed this frame try to pick up an item

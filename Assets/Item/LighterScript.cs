@@ -53,7 +53,7 @@ public class LighterScript : ItemScript {
 		myLight.enabled = !myLight.enabled;
 	}
 
-	void Update(){
+	public override void OnUpdate(){
 		_energy += Time.deltaTime * _energyGainRate;
 		_energy = Mathf.Clamp(_energy, 0, 100);
 	}
