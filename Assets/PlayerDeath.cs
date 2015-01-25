@@ -8,6 +8,8 @@ public class PlayerDeath : MonoBehaviour {
 	MouseLook look;
 	Image deathOverlay;
 
+	Transform killerTrans;
+
 	float timeToRestart = 3;
 	bool dead = false;
 	// Use this for initialization
@@ -21,6 +23,8 @@ public class PlayerDeath : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(dead == true){
+			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(killerTrans.position - transform.position), 0.2f);
+
 			Color red = deathOverlay.color;
 			red.a += Time.deltaTime;
 			deathOverlay.color = red;
@@ -42,6 +46,7 @@ public class PlayerDeath : MonoBehaviour {
 
 	void Kill(Collider col){
 		if(col.gameObject.tag == "Enemy"){
+			killerTrans = col.transform;
 			controller.enabled = false;
 			inventory.enabled = false;
 			rigidbody.isKinematic = false;

@@ -1,0 +1,43 @@
+Initialize engine version: 4.6.1f1 (d1db7a1b5196)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: ATI Radeon HD 5800 Series (ID=0x6898)
+    Vendor:   ATI
+    VRAM:     994 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\graphic\Documents\KawaiiHorrorCute\Asylum_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\graphic\Documents\KawaiiHorrorCute\Asylum_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\graphic\Documents\KawaiiHorrorCute\Asylum_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\graphic\Documents\KawaiiHorrorCute\Asylum_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\graphic\Documents\KawaiiHorrorCute\Asylum_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\graphic\Documents\KawaiiHorrorCute\Asylum_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\graphic\Documents\KawaiiHorrorCute\Asylum_Data\Managed\Assembly-UnityScript-firstpass.dll (this message is harmless)
+Loading C:\Users\graphic\Documents\KawaiiHorrorCute\Asylum_Data\Managed\Assembly-UnityScript-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\graphic\Documents\KawaiiHorrorCute\Asylum_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\graphic\Documents\KawaiiHorrorCute\Asylum_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.095 seconds
+desktop: 2560x1440 60Hz; virtual: 2560x1440 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: C:\Users\graphic\Documents\KawaiiHorrorCute\Asylum_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\graphic\Documents\KawaiiHorrorCute\Asylum_Data\Managed\System.dll (this message is harmless)
+UnloadTime: 3.138154 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 549.
+Total: 1.992143 ms (FindLiveObjects: 0.019632 ms CreateObjectMapping: 0.015783 ms MarkObjects: 0.168610 ms  DeleteObjects: 0.940060 ms)
+
+Platform assembly: C:\Users\graphic\Documents\KawaiiHorrorCute\Asylum_Data\Managed\Boo.Lang.dll (this message is harmless)
+UnloadTime: 1.035529 ms
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 285 unused Assets to reduce memory usage. Loaded Objects now: 169.
+Total: 11.816969 ms (FindLiveObjects: 0.022327 ms CreateObjectMapping: 0.017322 ms MarkObjects: 0.134734 ms  DeleteObjects: 10.847267 ms)
+
+UnloadTime: 0.422680 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 552.
+Total: 1.954417 ms (FindLiveObjects: 0.019632 ms CreateObjectMapping: 0.016168 ms MarkObjects: 0.185933 ms  DeleteObjects: 0.920042 ms)
+
