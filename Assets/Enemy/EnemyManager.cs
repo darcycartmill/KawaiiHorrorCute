@@ -12,6 +12,11 @@ public class EnemyManager : MonoBehaviour {
 	float spawntime;
 	float spawnDistance = 50;
 
+	public void ResetSpawn(){
+		currentSpawnrate += spawnrateTickdown;
+		spawntime = 0;
+	}
+
 	// Use this for initialization
 	void Start () {
 		player = GameObject.Find("Player");

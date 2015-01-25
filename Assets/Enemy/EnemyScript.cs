@@ -25,6 +25,7 @@ public class EnemyScript : MonoBehaviour {
 			if(Physics.Raycast(transform.position, player.transform.position - transform.position, out hitinfo)){
 				if(hitinfo.collider.tag == "Player"){
 					Debug.Log("saw player and died");
+					GameObject.Find("EnemyManager").GetComponent<EnemyManager>().ResetSpawn();
 					Kill ();
 
 				}
@@ -51,6 +52,7 @@ public class EnemyScript : MonoBehaviour {
 		}
 
 		if(!myAgent.SetDestination(player.transform.position)){
+			GameObject.Find("EnemyManager").GetComponent<EnemyManager>().ResetSpawn();
 			Kill();
 		}
 

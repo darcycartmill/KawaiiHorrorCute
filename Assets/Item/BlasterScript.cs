@@ -21,10 +21,7 @@ public class BlasterScript : ItemScript {
 	}
 	
 	public override void HeldEffect(){
-		Vector3 scale = new Vector3(1, _energy / 100f, 1);
-		if(powerbar != null){
-			powerbar.transform.localScale = scale;
-		}
+
 	}
 	
 	public override void OnPickup ()
@@ -46,11 +43,16 @@ public class BlasterScript : ItemScript {
 		}
 
 		GameObject projectile = Instantiate(shootMe, transform.position, transform.rotation) as GameObject;
-		projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * 500);
+		projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * 700);
 	}
 
 	public override void OnUpdate(){
 		_energy += Time.deltaTime * _energyGainRate;
 		_energy = Mathf.Clamp(_energy, 0, 100);
+
+		Vector3 scale = new Vector3(1, _energy / 100f, 1);
+		if(powerbar != null){
+			powerbar.transform.localScale = scale;
+		}
 	}
 }

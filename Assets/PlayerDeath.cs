@@ -23,7 +23,7 @@ public class PlayerDeath : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(dead == true){
-			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(killerTrans.position - transform.position), 0.2f);
+			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(killerTrans.position - transform.position), 0.4f);
 
 			Color red = deathOverlay.color;
 			red.a += Time.deltaTime;
@@ -51,7 +51,7 @@ public class PlayerDeath : MonoBehaviour {
 			inventory.enabled = false;
 			rigidbody.isKinematic = false;
 			look.enabled = false;
-			rigidbody.AddForceAtPosition(Random.insideUnitSphere * 40, Random.insideUnitSphere);
+			rigidbody.AddForceAtPosition(Random.insideUnitSphere * 20, Random.insideUnitSphere);
 			dead = true;
 		}
 
