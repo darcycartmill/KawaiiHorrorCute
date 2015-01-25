@@ -16,28 +16,160 @@ Platform assembly: C:\Users\graphic\Documents\KawaiiHorrorCute\Asylum_Data\Manag
 Loading C:\Users\graphic\Documents\KawaiiHorrorCute\Asylum_Data\Managed\Assembly-UnityScript-firstpass.dll into Unity Child Domain
 Platform assembly: C:\Users\graphic\Documents\KawaiiHorrorCute\Asylum_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\graphic\Documents\KawaiiHorrorCute\Asylum_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.095 seconds
+- Completed reload, in  0.096 seconds
 desktop: 2560x1440 60Hz; virtual: 2560x1440 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: C:\Users\graphic\Documents\KawaiiHorrorCute\Asylum_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\graphic\Documents\KawaiiHorrorCute\Asylum_Data\Managed\System.dll (this message is harmless)
-UnloadTime: 3.138154 ms
+UnloadTime: 7.737214 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 549.
-Total: 1.992143 ms (FindLiveObjects: 0.019632 ms CreateObjectMapping: 0.015783 ms MarkObjects: 0.168610 ms  DeleteObjects: 0.940060 ms)
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 610.
+Total: 1.998302 ms (FindLiveObjects: 0.032336 ms CreateObjectMapping: 0.016938 ms MarkObjects: 0.214804 ms  DeleteObjects: 0.892711 ms)
 
 Platform assembly: C:\Users\graphic\Documents\KawaiiHorrorCute\Asylum_Data\Managed\Boo.Lang.dll (this message is harmless)
-UnloadTime: 1.035529 ms
+Failed to create agent because it is not close enough to the NavMesh
+ 
+(Filename:  Line: 648)
+
+"SetDestination" can only be called on an active agent that has been placed on a NavMesh.
+ 
+(Filename:  Line: 152)
+
+Failed to create agent because it is not close enough to the NavMesh
+ 
+(Filename:  Line: 648)
+
+"SetDestination" can only be called on an active agent that has been placed on a NavMesh.
+ 
+(Filename:  Line: 152)
+
+saw player and died
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Failed to create agent because it is not close enough to the NavMesh
+ 
+(Filename:  Line: 648)
+
+"SetDestination" can only be called on an active agent that has been placed on a NavMesh.
+ 
+(Filename:  Line: 152)
+
+UnloadTime: 1.256878 ms
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 285 unused Assets to reduce memory usage. Loaded Objects now: 169.
-Total: 11.816969 ms (FindLiveObjects: 0.022327 ms CreateObjectMapping: 0.017322 ms MarkObjects: 0.134734 ms  DeleteObjects: 10.847267 ms)
+Unloading 288 unused Assets to reduce memory usage. Loaded Objects now: 172.
+Total: 6.380247 ms (FindLiveObjects: 0.012703 ms CreateObjectMapping: 0.016553 ms MarkObjects: 0.137813 ms  DeleteObjects: 5.410545 ms)
 
-UnloadTime: 0.422680 ms
+UnloadTime: 0.432304 ms
 Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 552.
-Total: 1.954417 ms (FindLiveObjects: 0.019632 ms CreateObjectMapping: 0.016168 ms MarkObjects: 0.185933 ms  DeleteObjects: 0.920042 ms)
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 612.
+Total: 1.938634 ms (FindLiveObjects: 0.021557 ms CreateObjectMapping: 0.016553 ms MarkObjects: 0.200946 ms  DeleteObjects: 0.912728 ms)
+
+Failed to create agent because it is not close enough to the NavMesh
+ 
+(Filename:  Line: 648)
+
+"SetDestination" can only be called on an active agent that has been placed on a NavMesh.
+ 
+(Filename:  Line: 152)
+
+saw player and died
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Failed to create agent because it is not close enough to the NavMesh
+ 
+(Filename:  Line: 648)
+
+"SetDestination" can only be called on an active agent that has been placed on a NavMesh.
+ 
+(Filename:  Line: 152)
+
+Failed to create agent because it is not close enough to the NavMesh
+ 
+(Filename:  Line: 648)
+
+"SetDestination" can only be called on an active agent that has been placed on a NavMesh.
+ 
+(Filename:  Line: 152)
+
+Failed to create agent because it is not close enough to the NavMesh
+ 
+(Filename:  Line: 648)
+
+"SetDestination" can only be called on an active agent that has been placed on a NavMesh.
+ 
+(Filename:  Line: 152)
+
+Failed to create agent because it is not close enough to the NavMesh
+ 
+(Filename:  Line: 648)
+
+saw player and died
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Failed to create agent because it is not close enough to the NavMesh
+ 
+(Filename:  Line: 648)
+
+"SetDestination" can only be called on an active agent that has been placed on a NavMesh.
+ 
+(Filename:  Line: 152)
+
+saw player and died
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Failed to create agent because it is not close enough to the NavMesh
+ 
+(Filename:  Line: 648)
+
+"SetDestination" can only be called on an active agent that has been placed on a NavMesh.
+ 
+(Filename:  Line: 152)
+
+Failed to create agent because it is not close enough to the NavMesh
+ 
+(Filename:  Line: 648)
+
+saw player and died
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Failed to create agent because it is not close enough to the NavMesh
+ 
+(Filename:  Line: 648)
+
+"SetDestination" can only be called on an active agent that has been placed on a NavMesh.
+ 
+(Filename:  Line: 152)
+
+Failed to create agent because it is not close enough to the NavMesh
+ 
+(Filename:  Line: 648)
+
+"SetDestination" can only be called on an active agent that has been placed on a NavMesh.
+ 
+(Filename:  Line: 152)
+
+UnloadTime: 1.388148 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 312 unused Assets to reduce memory usage. Loaded Objects now: 173.
+Total: 2.541089 ms (FindLiveObjects: 0.016168 ms CreateObjectMapping: 0.021557 ms MarkObjects: 0.155521 ms  DeleteObjects: 1.533276 ms)
+
+UnloadTime: 0.565499 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 613.
+Total: 2.921809 ms (FindLiveObjects: 0.035030 ms CreateObjectMapping: 0.028486 ms MarkObjects: 0.262539 ms  DeleteObjects: 1.250719 ms)
+
+saw player and died
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 

@@ -80,6 +80,7 @@
      <Compile Include="Assets\Item\LighterScript.cs" />
      <Compile Include="Assets\Item\Prefabs\PulsingLight.cs" />
      <Compile Include="Assets\Item\projectile\BombScript.cs" />
+     <Compile Include="Assets\Item\projectile\FadeLight.cs" />
      <Compile Include="Assets\KillGame.cs" />
      <Compile Include="Assets\PlayerDeath.cs" />
      <Compile Include="Assets\titleManager.cs" />
