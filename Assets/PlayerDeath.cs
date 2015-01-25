@@ -21,6 +21,10 @@ public class PlayerDeath : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(dead == true){
+			Color red = deathOverlay.color;
+			red.a += Time.deltaTime;
+			deathOverlay.color = red;
+
 			timeToRestart -= Time.deltaTime;
 			if(timeToRestart < 0){
 				Application.LoadLevel(0);
@@ -42,7 +46,7 @@ public class PlayerDeath : MonoBehaviour {
 			inventory.enabled = false;
 			rigidbody.isKinematic = false;
 			look.enabled = false;
-			rigidbody.AddExplosionForce(999, col.transform.position + Random.insideUnitSphere, 15);
+			rigidbody.AddForceAtPosition(Random.insideUnitSphere * 40, Random.insideUnitSphere);
 			dead = true;
 		}
 

@@ -6,9 +6,9 @@ public class EnemyManager : MonoBehaviour {
 	public GameObject enemy;
 
 	GameObject player;
-	float currentSpawnrate = 30;
-	float spawnrateTickdown = 1.3f;
-	float minSpawnRate = 2;
+	float currentSpawnrate = 25;
+	float spawnrateTickdown = 3f;
+	float minSpawnRate = 3;
 	float spawntime;
 	float spawnDistance = 20;
 

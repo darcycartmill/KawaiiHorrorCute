@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour {
 	//where we hold an item in front of us
@@ -11,6 +12,8 @@ public class InventoryManager : MonoBehaviour {
 	public Transform swapItemTrans;
 	//parent all picked up items to this and it will guid them around
 	public Transform itemSlot;
+
+	Text tutorialText;
 
 	List<ItemScript> _inventory;
 	int _heldItemIndex;
@@ -31,6 +34,9 @@ public class InventoryManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		tutorialText = GameObject.Find("Text").GetComponent<Text>();
+
+
 		inventoryBoxManager = GameObject.Find("InventoryBox").GetComponent<InventoryBoxManager>();
 		_inventory = new List<ItemScript>();
 		RecalculateGUI();
@@ -291,6 +297,8 @@ public class InventoryManager : MonoBehaviour {
 		itemSlot.rotation = Quaternion.Slerp(itemSlot.rotation, _itemSlotDestination.rotation, Time.deltaTime * _itemSlotSpeed);
 	}
 
+	float messageTime = 7;
+
 	// Update is called once per frame
 	void Update () {
 		foreach(ItemScript iter in _inventory){
@@ -298,6 +306,25 @@ public class InventoryManager : MonoBehaviour {
 		}
 
 		UpdateItem();
+
+		//some tutorial messages. Becaus people are stupid
+		if(_inventory.Count == 0){
+			Collider[] foundColliders = Physics.OverlapSphere(heldItemTrans.position, _pickupRadious);  
+			foreach(Collider col in foundColliders){
+				if(col.GetComponent<ItemScript>() != null){
+					tutorialText.text = "right click to pick up items";
+					tutorialText.enabled = true;
+				}
+			}
+		}else if(_inventory.Count == 2 && messageTime > 0){
+			messageTime -= Time.deltaTime;
+			tutorialText.text = "turn scrollwheel to switch items. press it to drop them";
+			tutorialText.enabled = true;
+		}else{
+			tutorialText.enabled = false;
+		}
+
+
 
 		//if the fire button was pressed this frame try to pick up an item
 		float curFire2 = Input.GetAxis("Fire2");
