@@ -34,6 +34,10 @@ public class EnemyManager : MonoBehaviour {
 				currentSpawnrate = 20;
 			}
 
+			if(player == null){
+				player = GameObject.Find("Player");
+			}
+
 			spawntime = currentSpawnrate;
 			Vector3 spawnpos = player.transform.position;
 			Vector2 circle = Random.insideUnitCircle * spawnDistance;

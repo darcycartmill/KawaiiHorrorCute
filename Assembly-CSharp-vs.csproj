@@ -49,6 +49,7 @@
      <Compile Include="Assets\Archer\ArcherManager.cs" />
      <Compile Include="Assets\Character\InventoryManager.cs" />
      <Compile Include="Assets\Character\MovementScript.cs" />
+     <Compile Include="Assets\Character\StartAnimation.cs" />
      <Compile Include="Assets\Detonator Explosion Framework\Sample Supporting Emitters\DetonatorSprayHelper.cs" />
      <Compile Include="Assets\Detonator Explosion Framework\System\Detonator.cs" />
      <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorBurstEmitter.cs" />
