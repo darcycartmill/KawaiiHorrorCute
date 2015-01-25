@@ -18,5 +18,13 @@ public class BombScript : MonoBehaviour {
 	void OnCollisionEnter (Collision col){
 		Instantiate(explosion, transform.position, transform.rotation);
 		Destroy(gameObject);
+
+		Collider[] found = Physics.OverlapSphere(transform.position, 10);
+		foreach(Collider iter in found){
+			EnemyScript script = iter.GetComponent<EnemyScript>();
+			if(script != null){
+				script.Kill();
+			}
+		}
 	}
 }
