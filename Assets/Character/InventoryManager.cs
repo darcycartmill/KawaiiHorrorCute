@@ -152,7 +152,7 @@ public class InventoryManager : MonoBehaviour {
 		oldItem.collider.isTrigger = false;
 		oldItem.rigidbody.isKinematic = false;
 		oldItem.transform.parent = null;
-
+		oldItem.OnDrop();
 		_inventory.Remove(oldItem);
 
 		RecalculateGUI();

@@ -11,6 +11,8 @@ public class ItemScript : MonoBehaviour {
 
 	public virtual void OnPickup(){}
 
+	public virtual void OnDrop(){}
+
 	public virtual void Kill(){
 		Destroy(gameObject);
 	}
