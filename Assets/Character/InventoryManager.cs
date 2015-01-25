@@ -254,8 +254,6 @@ public class InventoryManager : MonoBehaviour {
 	public bool KillItemByName(string myname){
 		foreach(ItemScript iter in _inventory){
 			if(iter.name == myname){
-				_inventory.Remove(iter);
-				RecalculateGUI();
 				iter.Kill();
 				return true;
 			}
