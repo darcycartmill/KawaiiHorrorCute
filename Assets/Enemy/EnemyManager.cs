@@ -6,11 +6,11 @@ public class EnemyManager : MonoBehaviour {
 	public GameObject enemy;
 
 	GameObject player;
-	float currentSpawnrate = 25;
-	float spawnrateTickdown = 3f;
-	float minSpawnRate = 3;
+	float currentSpawnrate = 30;
+	float spawnrateTickdown = 1.5f;
+	float minSpawnRate = 4;
 	float spawntime;
-	float spawnDistance = 20;
+	float spawnDistance = 50;
 
 	// Use this for initialization
 	void Start () {
@@ -25,9 +25,16 @@ public class EnemyManager : MonoBehaviour {
 			if(currentSpawnrate > minSpawnRate){
 				currentSpawnrate -= spawnrateTickdown;
 			}
+			if(currentSpawnrate > 20){
+				currentSpawnrate = 20;
+			}
+
 			spawntime = currentSpawnrate;
 			Vector3 spawnpos = player.transform.position;
-			spawnpos -= player.transform.forward * spawnDistance;
+			Vector2 circle = Random.insideUnitCircle * spawnDistance;
+			spawnpos += new Vector3(circle.x, 0, circle.y);
+
+			//spawnpos = Quaternion.AngleAxis(Random.Range(36 * spawnpos;
 
 			Instantiate(enemy, spawnpos, player.transform.rotation);
 		}

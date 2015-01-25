@@ -1,9 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\titleManager.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Character\InventoryManager.cs">
     <Files>
       <File FileName="Assets\Character\InventoryManager.cs" Line="310" Column="53" />
       <File FileName="Assets\titleManager.cs" Line="14" Column="29" />
+      <File FileName="Assets\KillGame.cs" Line="6" Column="1" />
+      <File FileName="Assets\PlayerDeath.cs" Line="26" Column="106" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
