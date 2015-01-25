@@ -68,6 +68,7 @@
      <Compile Include="Assets\Detonator Explosion Framework\TestScene\TouchToMouse.cs" />
      <Compile Include="Assets\Door\ShoveableByPlayer.cs" />
      <Compile Include="Assets\Events\EventManager.cs" />
+     <Compile Include="Assets\Item\BlasterScript.cs" />
      <Compile Include="Assets\Item\CanScript.cs" />
      <Compile Include="Assets\Item\CanopenerScript.cs" />
      <Compile Include="Assets\Item\Inventory GUI\InventoryBoxManager.cs" />
