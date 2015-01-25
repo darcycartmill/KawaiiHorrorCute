@@ -8,6 +8,8 @@ public class EnemyScript : MonoBehaviour {
 
 	bool alive;
 
+	public AudioSource mysource;
+
 	// Use this for initialization
 	void Start () {
 		player = GameObject.Find("Player");
@@ -29,6 +31,10 @@ public class EnemyScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
+		if(Vector3.Magnitude(player.transform.position - transform.position) < 5){
+			mysource.Play();
+		}
 
 		if(!myAgent.SetDestination(player.transform.position)){
 			Kill();

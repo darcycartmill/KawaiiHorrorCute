@@ -27,7 +27,7 @@ public class BlasterScript : ItemScript {
 	
 	public override void OnPickup ()
 	{
-
+	
 	}
 	
 	public override void OnDrop ()
