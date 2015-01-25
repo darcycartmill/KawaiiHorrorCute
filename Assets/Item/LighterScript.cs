@@ -17,7 +17,7 @@ public class LighterScript : ItemScript {
 
 	void Start(){
 		powerbar = GameObject.Find("Bar");
-		myLight.enabled = true;
+		myLight.enabled = false;
 		_energy = 100;
 	}
 
@@ -28,7 +28,7 @@ public class LighterScript : ItemScript {
 			powerbar.transform.localScale = scale;
 		}
 
-		if(myLight.enabled = true){
+		if(myLight.enabled == true){
 			_energy -= Time.deltaTime * _energyLossRate;
 		}
 

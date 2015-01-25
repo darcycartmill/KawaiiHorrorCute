@@ -219,6 +219,7 @@ public class InventoryManager : MonoBehaviour {
 		if(_inventory.Count == 0){
 			_heldItemIndex = 0;
 			PrepareItemForStorage(closestFoundScript);
+			closestFoundScript.OnPickup();
 			RecalculateGUI();
 			return;
 		}
@@ -227,6 +228,7 @@ public class InventoryManager : MonoBehaviour {
 		if(_inventory.Count < _inventorySlots){
 			//pick up the new item
 			PrepareItemForStorage(closestFoundScript);
+			closestFoundScript.OnPickup();
 			//set our held index to our new item
 			_heldItemIndex = _inventory.Count - 1;
 
