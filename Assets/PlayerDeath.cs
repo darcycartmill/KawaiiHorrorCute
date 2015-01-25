@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 public class PlayerDeath : MonoBehaviour {
 
 	CharacterController controller;
 	InventoryManager inventory;
 	MouseLook look;
+	Image deathOverlay;
 
 	float timeToRestart = 3;
 	bool dead = false;
@@ -14,6 +15,7 @@ public class PlayerDeath : MonoBehaviour {
 		controller = GetComponent<CharacterController>();
 		inventory = GetComponent<InventoryManager>();
 		look = GetComponent<MouseLook>();
+		deathOverlay = GameObject.Find("DeathOverlay").GetComponent<Image>();
 	}
 	
 	// Update is called once per frame
